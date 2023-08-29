@@ -17,11 +17,12 @@ public class ServiceProvider {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    private String name;
-    private String email;
-    private String password;
-    @JsonIgnoreProperties({"serviceProvider"})
+    private String info;
+//    @JsonIgnoreProperties({"serviceProvider"})
     @OneToMany(mappedBy="serviceProvider")
     private List<Services> servicesList;
+    @OneToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id", unique = true)
+    private User user;
 
 }

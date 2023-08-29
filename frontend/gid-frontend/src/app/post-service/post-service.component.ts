@@ -55,4 +55,7 @@ export class PostServiceComponent implements OnInit {
   logout() {
     this.router.navigate(['login/provider']); // Redirect to the homepage
   }
+  alertFunction(){
+    alert("you hav a job!");
+  }
 }

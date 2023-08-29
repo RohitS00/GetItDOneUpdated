@@ -23,26 +23,31 @@ public class ServiceProviderServiceIMPL implements ServiceProviderService{
     }
 
     @Override
-    public ServiceProvider register(ServiceProvider sp) throws Exception{
-        ServiceProvider obj = serviceProviderRepository.findByEmail(sp.getEmail());
-        if (obj != null) {
-            throw new Exception("service provider already exist");
-        }
-        return serviceProviderRepository.save(sp);
+    public ServiceProvider saveServiceProvider(ServiceProvider serviceProvider) {
+        return serviceProviderRepository.save(serviceProvider);
     }
 
-    @Override
-    public ServiceProvider login(ServiceProvider sp) throws Exception{
-        ServiceProvider obj = serviceProviderRepository.findByEmail(sp.getEmail());
-        if(obj==null) {
-            throw new Exception("service provider doesn't exist");
-        }
-        else if(!sp.getPassword().equals(obj.getPassword())) {
-            throw new Exception("incorrect password");
-        }
-
-        return obj;
-    }
+//    @Override
+//    public ServiceProvider register(ServiceProvider sp) throws Exception{
+//        ServiceProvider obj = serviceProviderRepository.findByEmail(sp.getEmail());
+//        if (obj != null) {
+//            throw new Exception("service provider already exist");
+//        }
+//        return serviceProviderRepository.save(sp);
+//    }
+//
+//    @Override
+//    public ServiceProvider login(ServiceProvider sp) throws Exception{
+//        ServiceProvider obj = serviceProviderRepository.findByEmail(sp.getEmail());
+//        if(obj==null) {
+//            throw new Exception("service provider doesn't exist");
+//        }
+//        else if(!sp.getPassword().equals(obj.getPassword())) {
+//            throw new Exception("incorrect password");
+//        }
+//
+//        return obj;
+//    }
     @Override
     public List<ServiceConsumer> getServiceConsumersByProviderId(int providerId) {
         ServiceProvider serviceProvider = serviceProviderRepository.findById(providerId).orElse(null);
@@ -53,5 +58,5 @@ public class ServiceProviderServiceIMPL implements ServiceProviderService{
         }
         return null;
     }
-    }
+            }
 

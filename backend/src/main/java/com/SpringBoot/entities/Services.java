@@ -18,15 +18,17 @@ public class Services {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String title;
-    @Column(name = "zipCode")
-    private int zipCode;
     private int price;
     private String description;
+    @Enumerated(EnumType.STRING)
+    private ServiceType serviceType;
     @ManyToOne
-//    @JsonIgnore
+    @JsonIgnore
     private ServiceProvider serviceProvider;
-
+    //@ManyToMany(mappedBy = "servicesList", fetch = FetchType.LAZY)
     @ManyToMany(mappedBy = "servicesList")
     @JsonIgnore
     private List<ServiceConsumer> serviceConsumerList;
+    @ManyToMany
+    private List<Zipcode> zipcodesList ;
 }

@@ -9,5 +9,5 @@ import java.util.UUID;
 
 @Repository
 public interface ServiceConsumerRepository extends JpaRepository<ServiceConsumer, Integer> {
-    ServiceConsumer findByEmail(String email);
+//    ServiceConsumer findByEmail(String email);
 }

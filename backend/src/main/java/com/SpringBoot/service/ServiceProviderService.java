@@ -8,8 +8,10 @@ import java.util.List;
 public interface ServiceProviderService {
     ServiceProvider findProvider(int id);
 
-    ServiceProvider register(ServiceProvider sp) throws Exception;
+    ServiceProvider saveServiceProvider(ServiceProvider serviceProvider);
 
-    ServiceProvider login(ServiceProvider sp) throws Exception;
+//    ServiceProvider register(ServiceProvider sp) throws Exception;
+//
+//    ServiceProvider login(ServiceProvider sp) throws Exception;
     List<ServiceConsumer> getServiceConsumersByProviderId(int providerId);
 }
